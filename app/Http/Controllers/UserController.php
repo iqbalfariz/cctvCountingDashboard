@@ -41,7 +41,7 @@ class UserController extends Controller
     //show
     public function show($id)
     {
-        return view('pages.dashboard');
+        return view('pages.dashboard.general-dashboard');
     }
 
     //edit

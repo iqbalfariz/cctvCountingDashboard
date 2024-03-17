@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CctvController;
+use App\Http\Controllers\CountingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +23,13 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('home', function () {
-        return view('pages.dashboard');
+        return view('pages.dashboard.general-dashboard');
     })->name('home');
     Route::resource('user', UserController::class);
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    });
+    // Route::get('/dashboard', function () {
+    //     return view('pages.dashboard.general-dashboard');
+    // });
+    Route::resource('cctv', CctvController::class);
+    Route::resource('counting', CountingController::class);
 });
